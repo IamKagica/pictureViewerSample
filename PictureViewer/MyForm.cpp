@@ -17,9 +17,14 @@ PictureViewer::MyForm::MyForm(void)
 {
 
 	InitializeComponent();
-	//addItem("C:\\Users\\khansen\\Pictures\\madlib.PNG");
-	//addItem("C:\\Users\\khansen\\Pictures\\Lab3.png");
-	//addItem("C:\\Users\\khansen\\Pictures\\kahoot.PNG");
+	addItem(0, "C:\\Users\\sinphi000\\Pictures\\Numbers\\one.jpg");
+	addItem(1, "C:\\Users\\sinphi000\\Pictures\\Numbers\\two.png");
+	addItem(2, "C:\\Users\\sinphi000\\Pictures\\Numbers\\three.png");
+	addItem(3, "C:\\Users\\sinphi000\\Pictures\\Numbers\\four.png");
+	addItem(4, "C:\\Users\\sinphi000\\Pictures\\Numbers\\five.png");
+	addItem(5, "C:\\Users\\sinphi000\\Pictures\\Numbers\\six.jpg");
+	addItem(6, "C:\\Users\\sinphi000\\Pictures\\Numbers\\seven.png");
+	addItem(7, "C:\\Users\\sinphi000\\Pictures\\Numbers\\eight.png");
 	setPicturePosition(0);
 
 }
@@ -62,6 +67,7 @@ System::Void PictureViewer::MyForm::addItem(System::String^ text) {
 	addItem(pictureList.size(), text);
 	
 }
+
 System::Void PictureViewer::MyForm::addItem(int pos, System::String^ text) {
 	pictureList.insert(pos,s2s(text));
 

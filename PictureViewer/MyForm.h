@@ -64,7 +64,6 @@ namespace PictureViewer {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->btn_prev = (gcnew System::Windows::Forms::Button());
 			this->btn_next = (gcnew System::Windows::Forms::Button());
 			this->pic_main = (gcnew System::Windows::Forms::PictureBox());
@@ -102,17 +101,16 @@ namespace PictureViewer {
 			// 
 			// pic_main
 			// 
-			this->pic_main->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pic_main.Image")));
 			this->pic_main->Location = System::Drawing::Point(137, 12);
 			this->pic_main->Name = L"pic_main";
 			this->pic_main->Size = System::Drawing::Size(236, 242);
 			this->pic_main->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pic_main->TabIndex = 2;
 			this->pic_main->TabStop = false;
+			this->pic_main->Click += gcnew System::EventHandler(this, &MyForm::pic_main_Click);
 			// 
 			// pic_right
 			// 
-			this->pic_right->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pic_right.Image")));
 			this->pic_right->Location = System::Drawing::Point(409, 93);
 			this->pic_right->Name = L"pic_right";
 			this->pic_right->Size = System::Drawing::Size(75, 99);
@@ -208,5 +206,7 @@ namespace PictureViewer {
 				 System::Void addItem(int pos, System::String ^ text);
 		private: System::Void btn_prev_Click(System::Object^  sender, System::EventArgs^  e);
 				 System::Void setPicturePosition(int pos);
+private: System::Void pic_main_Click(System::Object^  sender, System::EventArgs^  e) {
+}
 };
 }
