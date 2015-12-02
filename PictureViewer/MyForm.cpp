@@ -17,9 +17,9 @@ PictureViewer::MyForm::MyForm(void)
 {
 
 	InitializeComponent();
-	//addItem("C:\\Users\\khansen\\Pictures\\madlib.PNG");
-	//addItem("C:\\Users\\khansen\\Pictures\\Lab3.png");
-	//addItem("C:\\Users\\khansen\\Pictures\\kahoot.PNG");
+	addItem("C:\\Users\\Owner\\Pictures\\Numbers.jpg");
+	addItem("C:\\Users\\Owner\\Pictures\\City.jpg");
+	addItem("C:\\Users\\Owner\\Pictures\\Self.jpg");
 	setPicturePosition(0);
 
 }
@@ -75,7 +75,7 @@ System::Void PictureViewer::MyForm::addItem(int pos, System::String^ text) {
 System::Void PictureViewer::MyForm::btn_next_Click(System::Object ^ sender, System::EventArgs ^ e)
 {
 	//return System::Void();
-	// load the center image into the left picture box
+	//load the center image into the left picture box
 	//pic_left->ImageLocation = pic_main->ImageLocation;
 	// Load the right image into the main picture box
 	// MessageBox::Show(pic_right->ImageLocation);
@@ -83,8 +83,9 @@ System::Void PictureViewer::MyForm::btn_next_Click(System::Object ^ sender, Syst
 	
 	//pic_main->Load(pic_right->ImageLocation);
 	// load the next (next after the former right) image into the right picture box
-	//pic_right->ImageLocation = s2s(pictureList.get(current_position + 2));  
+	//pic_right->ImageLocation = s2s(pictureList.get(current_position + 2));
 	setPicturePosition(current_position+1);
+
 
 }
 System::Void PictureViewer::MyForm::btn_prev_Click(System::Object ^ sender, System::EventArgs ^ e)
@@ -100,13 +101,23 @@ System::Void PictureViewer::MyForm::btn_prev_Click(System::Object ^ sender, Syst
 
 System::Void PictureViewer::MyForm::setPicturePosition(int pos)
 {
-	if (pos > pictureList.size() || pos < 0) {
+	if (pos >= pictureList.size() || pos < 0) {
 		// Don't go anywhere. You are at the end of the list
 	}
+/*	else if (pos = 0)
+	{
+		System::String^ right_picture = s2s(pictureList.get(pos + 1));
+		System::String^ left_picture = s2s(pictureList.get(pos));
+		System::String^ main_picture = s2s(pictureList.get(pos));
+		pic_right->ImageLocation = right_picture;
+		pic_main->ImageLocation = main_picture;
+		pic_left->ImageLocation = left_picture;
+		current_position = pos;
+	}*/
 	else {
-		System::String^ right_picture = s2s(pictureList.get(current_position + 1));
-		System::String^ left_picture = s2s(pictureList.get(current_position - 1));
-		System::String^ main_picture = s2s(pictureList.get(current_position));
+		System::String^ right_picture = s2s(pictureList.get(pos + 1));
+		System::String^ left_picture = s2s(pictureList.get(pos - 1));
+		System::String^ main_picture = s2s(pictureList.get(pos));
 		pic_right->ImageLocation = right_picture;
 		pic_main->ImageLocation = main_picture;
 		pic_left->ImageLocation = left_picture;

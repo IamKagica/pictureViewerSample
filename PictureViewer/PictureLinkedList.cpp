@@ -41,13 +41,28 @@ void PictureLinkedList::insert(int pos, std::string value)
 		head->prev = 0;
 	}
 	else {
-		newNode->next = pic_at_position->next;
+		if (pic_at_position->next == 0)
+		{
+			pic_at_position->next = newNode;
+			newNode->next = 0;
+			newNode->prev = pic_at_position;
+		}
+
+		else 
+		{
+			PictureNode *pic_at_position2 = walkToPosition(pos + 1);
+			pic_at_position->next = newNode;
+			newNode->next = pic_at_position2;
+			pic_at_position2->prev = newNode;
+			newNode->prev = pic_at_position;
+		}
+/*		newNode->next = pic_at_position->next;
 		newNode->prev = pic_at_position;
 
 		if (newNode->next != 0) {
 			newNode->next->prev = newNode;
 		}
-		pic_at_position->next = newNode;
+		pic_at_position->next = newNode; */
 
 	}
 }
@@ -104,8 +119,8 @@ void PictureLinkedList::remove(int pos)
 {
 	PictureNode *tmp_node = walkToPosition(pos);
 	PictureNode *to_delete = tmp_node->next;
-	tmp_node->next = to_delete->next;
-	tmp_node->next->prev = tmp_node;
+//	tmp_node->next = to_delete->next;
+//	tmp_node->next->prev = tmp_node;
 	delete to_delete;
 }
 
